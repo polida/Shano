@@ -77,8 +77,8 @@ Dictionary<char, double> VypoctiPravdepodobnosti(string vstupniSlovo)
 }
 
 
-
-var pravdepodobnosti = VypoctiPravdepodobnosti(Console.ReadLine());
+string input = Console.ReadLine();
+var pravdepodobnosti = VypoctiPravdepodobnosti(input);
 Console.WriteLine("Pravdepodobnost:");
 foreach (var item in pravdepodobnosti)
 {
@@ -95,4 +95,10 @@ foreach (var item in kodova_slova)
 {
     prumernaDelka += pravdepodobnosti[item.Key] * item.Value.Length;
 }
+string zakodovaneS = "";
+foreach (var item in input.ToCharArray())
+{
+    zakodovaneS += kodova_slova[item];
+}
+Console.WriteLine("Shanono kod: " + zakodovaneS);
 Console.WriteLine("Velikost prumerné délky kódovaného slova: {0}", prumernaDelka);
